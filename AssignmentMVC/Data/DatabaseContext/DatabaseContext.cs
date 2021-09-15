@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AssignmentMVC.Data.DatabaseContext
 {
-    public class DatabaseContext : IdentityDbContext<User>
+    public class DatabaseContext : IdentityDbContext<Users>
     {
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {

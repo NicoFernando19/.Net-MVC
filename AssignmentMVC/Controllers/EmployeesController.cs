@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssignmentMVC.Data.DatabaseContext;
 using AssignmentMVC.Data.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AssignmentMVC.Controllers
 {
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly DatabaseContext _context;

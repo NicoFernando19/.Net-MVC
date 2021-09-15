@@ -30,12 +30,12 @@ namespace AssignmentMVC
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentityCore<User>()
-                .AddRoles<IdentityRole>()
+            services.AddIdentity<Users, IdentityRole>()
                 .AddEntityFrameworkStores<DatabaseContext>()
-                .AddTokenProvider<DataProtectorTokenProvider<User>>(TokenOptions.DefaultProvider);
+                .AddTokenProvider<DataProtectorTokenProvider<Users>>(TokenOptions.DefaultProvider);
 
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/User/Login");
 
             services.AddControllersWithViews();
         }

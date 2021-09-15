@@ -13,7 +13,7 @@ namespace AssignmentMVC.Data.DatabaseContext
         public static async void Initialize(IServiceProvider serviceProvider)
         {
             var context = serviceProvider.GetRequiredService<DatabaseContext>();
-            var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+            var userManager = serviceProvider.GetRequiredService<UserManager<Users>>();
             var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
             await context.Database.EnsureCreatedAsync();
             if (context.Employees.Any())
@@ -41,7 +41,7 @@ namespace AssignmentMVC.Data.DatabaseContext
             if (!await roleManager.RoleExistsAsync("User"))
                 await roleManager.CreateAsync(new IdentityRole("User"));
 
-            var User = new User
+            var User = new Users
             {
                 Email = "superuser@gmail.com",
                 SecurityStamp = Guid.NewGuid().ToString(),
