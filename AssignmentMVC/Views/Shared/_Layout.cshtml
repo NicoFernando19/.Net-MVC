@@ -4,7 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - AssignmentMVC</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/vendor/font-awesome/css/font-awesome.css" />
+
+    @*Datatables*@
+    <link rel="stylesheet" href="~/assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="~/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -22,7 +30,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="ResetPassword">Privacy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Employees" asp-action="Index">Employee</a>
@@ -46,6 +54,21 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @*Datatables*@
+    <script src="~/assets/vendor/select2/select2.js"></script>
+    <script src="~/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script src="~/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="~/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script src="~/assets/javascripts/tables/examples.datatables.default.js"></script>
+
+    <script>
+        function loadImage(event) {
+            var image = document.getElementById('image');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        }
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

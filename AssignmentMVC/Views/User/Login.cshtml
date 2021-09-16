@@ -14,6 +14,7 @@
             </div>
             <div class="panel-body">
                 <form asp-action="LoginPost" asp-controller="User">
+                    @Html.AntiForgeryToken()
                     <div>
                         <p class="text-danger">
                             @ViewBag.FailedLogin

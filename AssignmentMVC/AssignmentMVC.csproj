@@ -21,4 +21,19 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\Upload\Images\04eaba4c-1891-41fd-99f4-af40b6c6c249.png" />
+    <None Include="wwwroot\Upload\Images\0d198d1c-ef03-472a-88cd-c3f55517af0f.png" />
+    <None Include="wwwroot\Upload\Images\13cd2074-d600-417a-b2e9-ccbffba9a2d1.png" />
+    <None Include="wwwroot\Upload\Images\1ff7cefb-4b68-4ed4-9049-c5ce13b0adab.png" />
+    <None Include="wwwroot\Upload\Images\202758d6-9a19-4ef1-9022-175480ae9a66.png" />
+    <None Include="wwwroot\Upload\Images\21431d09-ff57-4072-8a3b-8f2aca82fe24.png" />
+    <None Include="wwwroot\Upload\Images\45f4f355-f77f-4b3d-bbbe-115af1ed774c.png" />
+    <None Include="wwwroot\Upload\Images\7521da4c-fea8-429a-9f12-aa17d9f208b6.png" />
+    <None Include="wwwroot\Upload\Images\931a3759-f95a-4679-a310-0d8d19736762.png" />
+    <None Include="wwwroot\Upload\Images\ac0ac218-5114-4351-97c6-6492b1235600.png" />
+    <None Include="wwwroot\Upload\Images\b06cf381-5f11-4cfc-b12c-4d68ff197c05.png" />
+    <None Include="wwwroot\Upload\Images\c594c9d4-471e-4109-add9-4bc2854616f5.png" />
+  </ItemGroup>
+
 </Project>

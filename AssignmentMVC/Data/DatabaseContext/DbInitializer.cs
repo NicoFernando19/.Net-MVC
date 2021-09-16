@@ -43,9 +43,9 @@ namespace AssignmentMVC.Data.DatabaseContext
 
             var User = new Users
             {
-                Email = "superuser@gmail.com",
+                Email = "nicofernando39@gmail.com",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName = "superuser@gmail.com",
+                UserName = "nicofernando39@gmail.com",
             };
             await userManager.CreateAsync(User, "Letme1n123!");
             await userManager.AddToRoleAsync(User, "SuperAdmin");

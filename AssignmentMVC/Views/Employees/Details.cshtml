@@ -6,71 +6,61 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Employee</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImagePath)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImagePath)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DoB)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DoB)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IsActive)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IsActive)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedAt)
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col d-flex justify-content-center">
+            <div class="w-75 d-flex justify-content-center">
+                <img src="https://localhost:44396/Upload/Images/@Model.ImageName" class="w-50 img-circle elevation-3" id="image" alt="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.Name)</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.Address)</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.PhoneNumber)</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Gender" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.Gender)</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.Email)</label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DoB" class="control-label font-weight-bold"></label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">@Html.DisplayFor(model => model.DoB)</label>
+                </div>
+            </div>
+            <div class="col-md-6 pl-5 form-check">
+                <label class="form-check-label">
+                    <b>Status</b> @(Model.IsActive ? "Active" : "Not Active")
+                </label>
+            </div>
+        </div>
+    </div>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |

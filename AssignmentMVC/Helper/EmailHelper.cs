@@ -26,7 +26,7 @@ namespace AssignmentMVC.Helper
                 smtp.EnableSsl = true;
                 smtp.UseDefaultCredentials = false;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtp.Credentials = new NetworkCredential("email-here", "password-here");
+                smtp.Credentials = new NetworkCredential("fortesting1981@outlook.com", "testing198!");
 
                 try
                 {

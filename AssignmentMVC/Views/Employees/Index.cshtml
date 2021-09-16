@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table table-bordered table-striped mb-none" id="datatable-default">
     <thead>
         <tr>
             <th>
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DoB)
+                @Html.DisplayFor(modelItem => item.DoB.ToString("dd MMMM yyyy"))
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

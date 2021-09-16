@@ -32,6 +32,7 @@ namespace AssignmentMVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> LoginPost([Bind("Email, Password")] LoginForm loginForm)
         {
             var user = await _userManager.FindByNameAsync(loginForm.Email);
@@ -56,6 +57,7 @@ namespace AssignmentMVC.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterPost([Bind("Name,Email,Password,ConfirmPassword")] RegistrationForm registrationForm)
         {
             var user = await _userManager.FindByEmailAsync(registrationForm.Email);
@@ -83,8 +85,15 @@ namespace AssignmentMVC.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpPut]
-        public async Task<ActionResult> ResetPassword(ResetPasswordModel resetPasswordModel)
+
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditPassword(ResetPasswordModel resetPasswordModel)
         {
             string Decodetoken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(resetPasswordModel.Token));
             var user = await _userManager.FindByEmailAsync(resetPasswordModel.Email);
@@ -102,14 +111,15 @@ namespace AssignmentMVC.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendResetPaswordLink(ValidateEmail validateEmail)
         {
             var user = await _userManager.FindByEmailAsync(validateEmail.Email);
             if(user != null)
             {
                 string[] email = { validateEmail.Email };
-                string url = "https://localhost:44396/reset-password";
-                string emailFrom = "email-from-here";
+                string url = "https://localhost:44396/User/ResetPassword";
+                string emailFrom = "fortesting1981@outlook.com";
                 var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
                 generateToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(generateToken));
                 string passwordResetUrl = $"{url}?email={validateEmail.Email}&token={generateToken}";
