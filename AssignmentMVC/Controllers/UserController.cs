@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,14 @@ namespace AssignmentMVC.Controllers
     {
         private readonly UserManager<Users> _userManager;
         private readonly SignInManager<Users> _signInManager;
+        private readonly IConfiguration _configuration;
 
         public UserController(SignInManager<Users> signInManager,
-            UserManager<Users> userManager)
+            UserManager<Users> userManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _configuration = configuration;
         }
         public ActionResult Login()
         {
@@ -118,7 +121,7 @@ namespace AssignmentMVC.Controllers
             if(user != null)
             {
                 string[] email = { validateEmail.Email };
-                string url = "https://localhost:44396/User/ResetPassword";
+                string url = _configuration.GetSection("WebSettings").GetSection("WebUrl").Value + "/User/ResetPassword";
                 string emailFrom = "fortesting1981@outlook.com";
                 var generateToken = await _userManager.GeneratePasswordResetTokenAsync(user);
                 generateToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(generateToken));
